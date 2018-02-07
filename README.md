@@ -42,7 +42,7 @@
   import QueueAnim from 'rc-queue-anim'
   网址：https://motion.ant.design/api/queue-anim
   ```
-* socket.io即时通信
+* `socket.io`即时通信
   ``` bash
   npm install socket.io --save
   github网址：https://github.com/socketio/socket.io
