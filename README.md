@@ -57,7 +57,7 @@
 * 加密插件utility
   ``` bash
   npm install utility
-  https://github.com/node-modules/utility
+  github网址：https://github.com/node-modules/utility
   utils.md5('苏千').should.equal('5f733c47c58a077d61257102b2d44481');
   utils.md5(new Buffer('苏千')).should.equal('5f733c47c58a077d61257102b2d44481');
   // md5 base64 format
