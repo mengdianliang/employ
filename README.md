@@ -38,12 +38,11 @@
 #### 好用的插件
 * 队列动画
   ``` bash
-  npm install rc-queue-anim -S
-  
+
   网址：https://motion.ant.design/api/queue-anim
   ```
 * `socket.io即时通信
-  ``` 
+  ``` bash
   npm install socket.io --save
   github网址：https://github.com/socketio/socket.io
   var server = require('http').createServer();
