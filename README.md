@@ -36,16 +36,22 @@
 * server.js: 服务端入口文件
 
 #### 好用的插件
-* rc-queue-anim
-  ``` bash
+* rc-queue-anim队列动画
+  ``` bash
   npm install rc-queue-anim --save
   import QueueAnim from 'rc-queue-anim'
   网址：https://motion.ant.design/api/queue-anim
   ```
-* `socket.io
+* `socket.io即时通信
   ``` 
-  npm install express-generator -S
-  这是一个express自动生成插件
+  npm install socket.io --save
+  var server = require('http').createServer();
+  var io = require('socket.io')(server);
+  io.on('connection', function(client){
+    client.on('event', function(data){});
+    client.on('disconnect', function(){});
+  });
+  server.listen(3000);
   ```
 * 分页加载vue-infinite-scroll
   ``` bash
