@@ -38,7 +38,7 @@
 #### 好用的插件
 * rc-queue-anim队列动画
   ``` bash
-  npm install rc-queue-anim --save
+  npm install rc-queue-anim
   import QueueAnim from 'rc-queue-anim'
   网址：https://motion.ant.design/api/queue-anim
   ```
