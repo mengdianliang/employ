@@ -70,6 +70,20 @@
     })
 
 ```
+#### 解决路由跳转到相同路径问题
+```
+{(this.props.redirectTo&&this.props.redirectTo!=='/login') ? <Redirect to={this.props.redirectTo} /> : null}
+
+```
+#### 设置页面头信息
+```
+  <Helmet>
+      {/* <link rel="icon" href={require('./pro/resource/images/favicon.ico')} type="image/x-icon" />
+      <link rel="shortcut icon" href={require('./pro/resource/images/favicon.ico')} type="image/x-icon" /> */}
+      <title>BOSS直聘</title>
+  </Helmet>
+
+```
 
 ### 交互体验
 该项目使用ant-mobile ui组件，大大简化了我们手写样式结构的麻烦，同时用到了ant motion中的队列动画，更友好的用户体验。
