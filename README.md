@@ -36,7 +36,7 @@
 * server.js: 服务端入口文件
 
 #### 好用的插件
-* rc-queue-anim队列动画
+* 队列动画
   ``` bash
   npm install rc-queue-anim
   import QueueAnim from 'rc-queue-anim'
