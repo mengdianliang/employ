@@ -38,31 +38,19 @@
 #### 好用的插件
 * 队列动画
   ``` bash
-  驱蚊器无群
+  npm install rc-queue-anim -S
+  import QueueAnim from 'rc-queue-anim'
+  网址：https://motion.ant.design/api/queue-anim
   ```
-* `socket.io`即时通信
+* socket.io即时通信
   ``` bash
   npm install socket.io --save
   github网址：https://github.com/socketio/socket.io
-  var server = require('http').createServer();
-  var io = require('socket.io')(server);
-  io.on('connection', function(client){
-    client.on('event', function(data){});
-    client.on('disconnect', function(){});
-  });
-  server.listen(3000);
   ```
 * 加密插件utility
   ``` bash
   npm install utility
   github网址：https://github.com/node-modules/utility
-  utils.md5('苏千').should.equal('5f733c47c58a077d61257102b2d44481');
-  utils.md5(new Buffer('苏千')).should.equal('5f733c47c58a077d61257102b2d44481');
-  // md5 base64 format
-  utils.md5('苏千', 'base64'); // 'X3M8R8WKB31hJXECstREgQ=='
-
-  // Object md5 hash. Sorted by key, and JSON.stringify. See source code for detail
-  utils.md5({foo: 'bar', bar: 'foo'}).should.equal(utils.md5({bar: 'foo', foo: 'bar'}));
   ```
 ### Node知识点
 由于node学的不是很好，所以这里总结一下感觉比较特别的一些基础知识。
