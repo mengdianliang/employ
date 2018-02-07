@@ -49,8 +49,8 @@
   ```
 * 加密插件utility
   ``` bash
-  npm install utility
-  github网址：https://github.com/node-modules/utility
+  npm install utility -S
+  github网址: https://github.com/node-modules/utility
   ```
 ### Node知识点
 由于node学的不是很好，所以这里总结一下感觉比较特别的一些基础知识。
