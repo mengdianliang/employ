@@ -2,55 +2,47 @@
 
 --------
 ### 概述
-项目是基于Vue.js，成品是一个PC端的购物车。前端的许多操作都要传输到后台，所以这里node也是很重要的一部分。
+项目是基于react.js，成品是一个移动端的招聘网站。
 #### 模块划分
 > 
-* [x] 用户登陆登出
-* [x] 商品列表
-* [x] 购物车列表
-* [x] 地址列表
-* [x] 购物订单列表
-* [x] 购物完成信息
+* [x] 用户登陆注册
+* [x] 用户信息完善
+* [x] 应聘者和被应聘者列表
+* [x] 应聘者和被应聘者对话列表
+* [x] 应聘者和被应聘者最新消息列表
+* [x] 个人中心
 #### 技术栈
 > 
-*  Vue
-*  Vuex
-*  Vue-Router
-*  Vue-cli
+*  React
+*  react-app
+*  react-router-dom
+*  redux
 *  Axios
 *  Node
 *  Mongodb
-
-#### src目录结构
-* api：用来请求服务器端数据的，通过`axios`发送请求，服务端代理，需要在`config/index.js`中设置代理接口
-    proxyTable: {
-      '/api': {
-        target: 'http://localhost:9000'
-      }
-    }
-* assets: 存放样式资源
+*  antd-mobile
+*  Ant Motion
+#### src目录结构(因为这里有一些测试的例子也放在这里，所以我把项目文件放在了Pro下)
 * components: 存放一些基础组件
-* views: 存放一些视图组件
+* containers: 存放一些视图组件
+* resources: 存放图片，文字，样式
+* redux: 状态管理
 * router: 配置路由
-* store: 一些共享状态管理(由于这里状态只有用户，购物车数量，所以直接写在了main.js文件中)
+* app.js：视图入口
 
 #### server目录结构
-* bin：服务端启动项
-* models: 数据库模型
-* public: 服务端页面样式，文字，图片资源
-* routes: 服务端路由
-* util: 工具类文件
-* views: 返回给客户端的网页模板
-* app.js: 服务端入口文件
+* models.js: 数据库模型
+* user.js: 业务逻辑处理
+* server.js: 服务端入口文件
 
 #### 好用的插件
-* 图片懒加载
+* rc-queue-anim
   ``` bash
-  npm install vue-lazyload -D
-  import VueLazyload from 'vue-lazyload'
-  github网址：https://github.com/hilongjw/vue-lazyload
+  npm install rc-queue-anim --save
+  import QueueAnim from 'rc-queue-anim'
+  网址：https://motion.ant.design/api/queue-anim
   ```
-* `express-generator`生成器
+* `socket.io
   ``` 
   npm install express-generator -S
   这是一个express自动生成插件
@@ -168,9 +160,9 @@ router.post("/cartEdit", function (req, res, next) {
 # install dependencies
 npm install
 # start server
-node server/app.js
-# serve with hot reload at localhost:8080
-npm run dev
+node server/server.js
+# serve with hot reload at localhost:3000
+npm start
 ```
 ### 总结
 通过学习该项目，对node又有了新的认识。虽然也有许多获取数据失败的问题，最多的还是node知识不扎实造成的，希望以后再node上多下点功夫。摁，加油！
