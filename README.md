@@ -52,99 +52,31 @@
   npm install utility -S
   github网址：https://github.com/node-modules/utility
   ```
-### Node知识点
-由于node学的不是很好，所以这里总结一下感觉比较特别的一些基础知识。
-#### 数据库
-```
-显示数据库列表 show dbs
-创建一个demo数据库 use demo
-创建数据库表：db.createCollection("user")
+### 重点
 
-创建数据库集合并插入数据:
-db.users.insert({id: 123, name: "张三"})
-查看数据库集合：show collections
-删除数据库: db.dropDatabase()
-删除集合: db.user.drop() 
-
-插入数据：db.user.insert({id: 123, username: 'jack', age: 20, class: {name: 'imooc', num: 10}})
-查询数据并格式化：db.user.find().pretty()
-查询第一条数据：db.user.findOne()
-条件查询：db.user.find({'username': 'jack'})
-          db.user.find({'age': {$gt: 20}})		
-更新数据：db.user.update({username: "jack"}, {$set: {age: 30}})
-更新子数据：db.user.update({username: "jack"}, {$set: {'class.name': 'imooc-jack'}})
-
-删除数据：db.user.remove({id: 123})
-
-导入文件数据：mongoimport -d db_demo -c users --file E:/代码/project/v18dyy/resource/dumall-users
+#### redux
 ```
-* 删除购物车商品
-```
-router.post('/cartDel', function (req, res, next) {
-  var userId = req.cookies.userId
-  var productId = req.body.productId
-  // $pull 要删除的数据
-  User.update({
-    userId: userId
-  }, {
-    $pull: {
-      'cartList': {
-        'productId': productId
-      }
-    }
-  },function (err, doc) {
-    if (err) {
-      res.json({
-        code: 1,
-        msg: err.message,
-        result: ''
-      })
-    } else {
-      res.json({
-        code: 0,
-        msg: '',
-        result: 'suc'
-      })
-    }
-  })
-})
-```
-* 修改购物车商品数量
-```
-router.post("/cartEdit", function (req, res, next) {
-  var userId = req.cookies.userId
-  var productId = req.body.productId
-  var productNum = req.body.productNum
-  var checked = req.body.checked
+在处理消息的时候，需要把消息划分为发消息跟收消息，同时发送消息（getMsgList(),readMsg(),sendMsg(),recvMsg()），要改变收消息的数量，并保存到数据库这里。
+后台需要socket.io来实时监听消息,同时把消息分类处理，返回给客户端：
+  Chat.find({"$or":[{"from": user}, {"to": user}]}, function(err, doc) {
+        //console.log(doc)
+        if (!err) {
+            return res.json({
+                code: 0, 
+                msgs: doc, 
+                users: users
+            })
+        }
+    })
 
-  // 更新子文档
-  User.update({"userId": userId, "cartList.productId": productId}, {
-    "cartList.$.productNum": productNum,
-    "cartList.$.checked": checked,
-    }, function (err,doc) {
-    if (err) {
-      res.json({
-        code: 1,
-        msg: err.message,
-        result: ''
-      });
-    } else {
-      res.json({
-        code: 0,
-        msg: '',
-        result: 'suc'
-      })
-    }
-  })
-})
 ```
 
 ### 交互体验
-该项目使用纯手写css样式，采用响应式布局，使用transition效果。使用到了分页加载插件`vue-infinite-scroll`，做到了下拉加载效果。
+该项目使用ant-mobile ui组件，大大简化了我们手写样式结构的麻烦，同时用到了ant motion中的队列动画，更友好的用户体验。
 
-通过原生js实现的进度条效果，详情请看https://github.com/mengdianliang/shopping/blob/master/src/components/progress/progress.vue
+还是用了axios拦截器的使用，有了loading加载体验
 
-为了减少流量，图片加载使用了懒加载的方式，滚动时再加载真实的图片。
+这里还用到了emoji表情，可以再发送消息时发送表情
 
 ### 效果
 ![](https://github.com/mengdianliang/shopping/blob/master/show/goodlist.png)
